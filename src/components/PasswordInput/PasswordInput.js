@@ -6,7 +6,10 @@ const cx = classNames.bind(styles);
 
 /**
  * 패스워드 인풋
- * @param {*} param0
+ * @param {string} name
+ * @param {string} value
+ * @param {function} onChange
+ * @param {boolean} visible
  */
 const PasswordInput = ({ name, value, onChange, visible }) => {
   return (

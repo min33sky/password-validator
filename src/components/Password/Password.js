@@ -12,21 +12,21 @@ const cx = classNames.bind(styles);
 
 class Password extends Component {
   state = {
-    strength: {}, // 비밀번호의 보안 수준을 위한 객체
+    strength: {}, // 비밀번호의 보안 수준을 담고 있는 객체
     password: '',
-    visible: false,
-    ok: false,
+    visible: false, // 패스워드 가시성
+    ok: false, // 모든 조건에 부합하는지 확인
   };
 
   /**
-   * 패스워드 검증
+   * 인풋에 입력 된 패스워드 검증
    */
   checkStrength = e => {
     let password = e.target.value;
-    this.setState({ password });
-    let strength = {};
-    console.log(this.props);
+    this.setState({ password }); // 패스워드 상태 업데이트
+    let strength = {}; // 패스워드 검증 값을 담을 객체 생성
     Object.keys(this.props).forEach((key, index, list) => {
+      // 검증 조건에 부합하면 검증 객체 업데이트
       if (this.props[key] && rules[key].pattern.test(password)) {
         strength[key] = true;
       }
@@ -70,6 +70,7 @@ class Password extends Component {
   };
 
   render() {
+    // 검증 조건과 부합 여부를 보여주기 위한 배열 생성
     const processedRules = Object.keys(this.props).map(key => {
       if (this.props[key]) {
         return {
