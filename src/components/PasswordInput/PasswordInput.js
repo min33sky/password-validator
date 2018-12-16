@@ -17,6 +17,7 @@ const PasswordInput = ({ name, value, onChange, visible }) => {
         name={name}
         value={value}
         onChange={onChange}
+        placeholder="Input Password"
       />
     </div>
   );
