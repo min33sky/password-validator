@@ -100,8 +100,15 @@ class Password extends Component {
             onToggle={toggleVisibility}
           />
           <PasswordInfo rules={processedRules} />
-          <PasswordGenerate onClick={generate}>Generate</PasswordGenerate>
-          <button disabled={ok ? false : true}>Save</button>
+          <div className={cx('buttons')}>
+            <PasswordGenerate onClick={generate}>Generate</PasswordGenerate>
+            <button
+              className={ok ? cx('save', 'ok') : cx('save')}
+              disabled={ok ? false : true}
+            >
+              Save
+            </button>
+          </div>
         </div>
       </div>
     );
